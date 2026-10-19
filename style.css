@@ -37,8 +37,9 @@ body::before {
   display: flex;
   min-height: 100vh;
   min-height: 100svh;
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   padding: clamp(2.5rem, 9vh, 7rem) 1rem 2rem;
   text-align: center;
 }
@@ -46,15 +47,15 @@ body::before {
 .clock {
   display: inline-flex;
   align-items: center;
-  color: #fffaf0;
-  filter: drop-shadow(0 3px 1px rgb(89 54 99 / 45%));
+  color: #624466;
+  filter: drop-shadow(0 3px 1px rgb(255 248 229 / 78%));
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(3.2rem, 12vw, 9rem);
   font-style: italic;
   font-weight: 700;
   letter-spacing: 0.025em;
   line-height: 0.95;
-  text-shadow: 0 0 18px rgb(255 255 255 / 35%);
+  text-shadow: 0 1px 0 rgb(255 247 225 / 90%), 0 0 18px rgb(91 56 102 / 28%);
   white-space: nowrap;
 }
 
@@ -89,14 +90,13 @@ body::before {
 }
 
 .clock-caption {
-  position: absolute;
-  top: clamp(8.2rem, 23vh, 13rem);
-  margin: 0;
-  color: #fffaf0;
+  position: static;
+  margin: clamp(1rem, 2.5vh, 1.75rem) 0 0;
+  color: #67466b;
   font-size: clamp(0.72rem, 1.5vw, 1rem);
   font-style: italic;
   letter-spacing: 0.18em;
-  text-shadow: 0 2px 8px rgb(89 54 99 / 60%);
+  text-shadow: 0 1px 0 rgb(255 247 225 / 88%), 0 2px 8px rgb(89 54 99 / 45%);
   text-transform: lowercase;
 }
 
@@ -123,7 +123,7 @@ body::before {
   }
 
   .clock-caption {
-    top: clamp(7rem, 20vh, 9rem);
+    margin-top: 0.9rem;
     letter-spacing: 0.1em;
   }
 }
