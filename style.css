@@ -1,0 +1,49 @@
+:root {
+  color-scheme: dark;
+  background: #000;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  background: #000;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+.clock-shell {
+  display: grid;
+  min-height: 100vh;
+  min-height: 100svh;
+  place-items: center;
+  padding: 1rem;
+}
+
+.clock {
+  color: #fff;
+  font-size: clamp(2.75rem, 13vw, 10rem);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-shadow: 0 0 24px rgb(255 255 255 / 18%);
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .clock {
+    font-size: clamp(2.35rem, 13vw, 4rem);
+    letter-spacing: 0.025em;
+  }
+}
