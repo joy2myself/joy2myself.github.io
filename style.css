@@ -1,8 +1,7 @@
 :root {
-  color-scheme: dark;
-  background: #000;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+  color-scheme: light;
+  background: #f4e2c5;
+  font-family: "Trebuchet MS", "Avenir Next", Avenir, "Segoe UI", sans-serif;
 }
 
 * {
@@ -14,36 +13,125 @@ body {
   width: 100%;
   min-height: 100%;
   margin: 0;
-  background: #000;
 }
 
 body {
   min-height: 100vh;
   min-height: 100svh;
   overflow: hidden;
+  background: #f4e2c5 url("assets/background.jpg") center center / cover no-repeat;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, rgb(255 249 238 / 12%), rgb(107 69 112 / 8%));
+  content: "";
+  pointer-events: none;
 }
 
 .clock-shell {
-  display: grid;
+  position: relative;
+  z-index: 1;
+  display: flex;
   min-height: 100vh;
   min-height: 100svh;
-  place-items: center;
-  padding: 1rem;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(2.5rem, 9vh, 7rem) 1rem 2rem;
+  text-align: center;
 }
 
 .clock {
-  color: #fff;
-  font-size: clamp(2.75rem, 13vw, 10rem);
-  font-weight: 300;
-  letter-spacing: 0.06em;
-  line-height: 1;
-  text-shadow: 0 0 24px rgb(255 255 255 / 18%);
+  display: inline-flex;
+  align-items: center;
+  color: #fffaf0;
+  filter: drop-shadow(0 3px 1px rgb(89 54 99 / 45%));
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.2rem, 12vw, 9rem);
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  line-height: 0.95;
+  text-shadow: 0 0 18px rgb(255 255 255 / 35%);
   white-space: nowrap;
 }
 
-@media (max-width: 480px) {
-  .clock {
-    font-size: clamp(2.35rem, 13vw, 4rem);
-    letter-spacing: 0.025em;
+.time-group {
+  display: inline-flex;
+}
+
+.digit {
+  display: inline-block;
+  width: 0.62em;
+  height: 1em;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.digit-track {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(0);
+  transition: transform 520ms cubic-bezier(0.22, 0.8, 0.25, 1);
+}
+
+.digit-track span {
+  display: block;
+  height: 1em;
+}
+
+.separator {
+  display: inline-block;
+  margin: 0 0.04em;
+  animation: soft-blink 2s ease-in-out infinite;
+}
+
+.clock-caption {
+  position: absolute;
+  top: clamp(8.2rem, 23vh, 13rem);
+  margin: 0;
+  color: #fffaf0;
+  font-size: clamp(0.72rem, 1.5vw, 1rem);
+  font-style: italic;
+  letter-spacing: 0.18em;
+  text-shadow: 0 2px 8px rgb(89 54 99 / 60%);
+  text-transform: lowercase;
+}
+
+@keyframes soft-blink {
+  0%,
+  45%,
+  100% {
+    opacity: 1;
+  }
+
+  50%,
+  95% {
+    opacity: 0.42;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    background-position: center center;
+  }
+
+  .clock-shell {
+    padding-top: clamp(2rem, 8vh, 4.5rem);
+  }
+
+  .clock-caption {
+    top: clamp(7rem, 20vh, 9rem);
+    letter-spacing: 0.1em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .digit-track,
+  .separator {
+    transition: none;
+    animation: none;
   }
 }

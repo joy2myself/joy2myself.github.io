@@ -3,14 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#f4e2c5">
   <meta name="description" content="joy2myself personal homepage">
   <title>joy2myself</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="clock-shell" aria-label="当前时间">
-    <time id="clock" class="clock" datetime="">00:00:00</time>
+    <time id="clock" class="clock" datetime="">
+      <span class="time-group" aria-label="小时">
+        <span class="digit" data-digit="0"><span class="digit-track"></span></span>
+        <span class="digit" data-digit="0"><span class="digit-track"></span></span>
+      </span>
+      <span class="separator" aria-hidden="true">:</span>
+      <span class="time-group" aria-label="分钟">
+        <span class="digit" data-digit="0"><span class="digit-track"></span></span>
+        <span class="digit" data-digit="0"><span class="digit-track"></span></span>
+      </span>
+      <span class="separator" aria-hidden="true">:</span>
+      <span class="time-group" aria-label="秒钟">
+        <span class="digit" data-digit="0"><span class="digit-track"></span></span>
+        <span class="digit" data-digit="0"><span class="digit-track"></span></span>
+      </span>
+    </time>
+    <p class="clock-caption">a little moment of joy</p>
   </main>
   <script src="script.js"></script>
 </body>
